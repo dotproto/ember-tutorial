@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
+  <!-- Need to put in an outlet to display URL-specific content. -->
   <script type="text/x-handlebars">
     <div class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
@@ -18,6 +19,12 @@
           <li><a href="#">About</a></li>
         </ul>
     </div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="about">
+    <div>This is a super awesome about section.</div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
