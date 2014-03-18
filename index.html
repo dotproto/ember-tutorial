@@ -15,8 +15,8 @@
         <div class="navbar-brand">Bloggr</div>
       </div>
         <ul class="nav navbar-nav">
-          <li><a href="#">Posts</a></li>
-          <li><a href="#">About</a></li>
+          <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
+          <li>{{#link-to 'about'}}About{{/link-to}}</li>
         </ul>
     </div>
 
@@ -25,6 +25,44 @@
 
   <script type="text/x-handlebars" id="about">
     <div>This is a super awesome about section.</div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="posts">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-xs-3">
+          <table class="table">
+            <thead><tr><th>Recent Posts</th></tr></thead>
+            {{#each}}
+            <tr><td>
+              {{#link-to 'post' this}}
+                {{title}} <small class="text-muted">by {{author.name}}</small>
+              {{/link-to}}
+            </td></tr>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="post">
+    <h1>{{title}}</h1>
+    <h2>by {{author.name}} <small class="text-muted">({{date}})</small></h2>
+    
+    <hr>
+
+    <div class="intro">
+      {{excerpt}}
+    </div>
+
+    <div class="below-the-fold">
+      {{body}}
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
