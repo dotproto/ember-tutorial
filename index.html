@@ -37,7 +37,7 @@
             {{#each}}
             <tr><td>
               {{#link-to 'post' this}}
-                {{title}} <small class="text-muted">by {{author.name}}</small>
+                {{{format-markdown title}}} <small class="text-muted">by {{author.name}}</small>
               {{/link-to}}
             </td></tr>
             {{/each}}
@@ -58,7 +58,7 @@
       <button {{action 'edit'}}>Edit</button>
     {{/if}}
 
-    <h1>{{title}}</h1>
+    <h1>{{{format-markdown title}}}</h1>
     <h2>by {{author.name}} <small class="text-muted">({{format-date date}})</small></h2>
     
     <hr>
